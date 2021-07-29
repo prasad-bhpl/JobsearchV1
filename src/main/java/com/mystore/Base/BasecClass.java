@@ -11,6 +11,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.BeforeTest;
 
+import com.mystore.actiondriver.Action;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BasecClass {
@@ -39,6 +41,8 @@ public class BasecClass {
 		String browsername=prop.getProperty("browser");
 		if(browsername.contains("Chrome"))
 		{
+			WebDriverManager.chromedriver().config();
+			System.setProperty("webdriver.chrome.driver", "D:\\Prasad_Selenium\\Prasad_Testing_Notes\\Testing_Notes\\chromedriver.exe");
 			driver=new ChromeDriver();
 		}
 		else if(browsername.contains("FireFox"))
@@ -49,6 +53,9 @@ public class BasecClass {
 		{
 			driver=new InternetExplorerDriver();
 		}
+		Action.implicitwait(driver, 10);
+		Action.pageloadtimeout(driver, 20);
+		driver.get(prop.getProperty("url"));
 	}
 
 }
