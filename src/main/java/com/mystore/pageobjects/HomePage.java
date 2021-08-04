@@ -17,15 +17,20 @@ WebElement orderHistory;
 
 public HomePage()
 {
-	PageFactory.initElements(driver, this);
+	PageFactory.initElements(driver.get(), this);
 }
 
 public boolean validateMyWishList()
 {
-	return Action.isDisplayed(driver, myWishList);
+	return Action.isDisplayed(driver.get(), myWishList);
 }
-public void validateorderHistory()
+public boolean validateorderHistory()
 {
-	Action.isDisplayed(driver, orderHistory);
+	return Action.isDisplayed(driver.get(), orderHistory);
+}
+public String getCurrentUrl()
+{
+	String homepageurl=driver.get().getCurrentUrl();
+	return homepageurl;
 }
 }

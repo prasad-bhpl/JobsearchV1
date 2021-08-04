@@ -15,35 +15,36 @@ public class IndexPage extends BasecClass {
 	@FindBy(xpath="//img[@class='logo img-responsive']")
 	WebElement myStoreLogo;
 	
-	@FindBy(id="//img[@class='search_query_top']")
+	@FindBy(id="search_query_top")
 	WebElement searchProductBox;
 	
-	@FindBy(name="submit_search']")
+	@FindBy(name="submit_search")
 	WebElement searchButton;
 	
 	public IndexPage()
 	{
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(driver.get(), this);
 	}
 	public LoginPage clickOnSignIn()
 	{
-		Action.click(driver, signInBtn);
+		Action.click(driver.get(), signInBtn);
 		return new LoginPage();
 	}
 	public boolean validateLogo()
 	{
-		return Action.isDisplayed(driver, myStoreLogo);
+		return Action.isDisplayed(driver.get(), myStoreLogo);
 		//return myStoreLogo.isDisplayed();
 	}
 	public String getmyStoreTitle()
 	{
-		String Mystoretitle=driver.getTitle();
+		String Mystoretitle=driver.get().getTitle();
 		return Mystoretitle;
 	}
-	public SearchResultPage searchProduct(String productName)
+	public SearchResultPage searchProduct(String productName) throws InterruptedException
 	{
 		Action.type(searchProductBox, productName);
-		Action.click(driver, searchButton);
+		Thread.sleep(4000);
+		Action.click(driver.get(), searchButton);
 		return new SearchResultPage();
 	}
 

@@ -22,7 +22,7 @@ public class OrderConfirmationPage extends BasecClass{
 	
 	public OrderConfirmationPage()
 	{
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(driver.get(), this);
 	}
 	public String validateConfirmMessage()
 	{

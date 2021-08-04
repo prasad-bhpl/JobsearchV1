@@ -27,27 +27,27 @@ WebElement createNewAccountBtn;
 
 public LoginPage()
 {
-	PageFactory.initElements(driver, this);
+	PageFactory.initElements(driver.get(), this);
 }
 
 public HomePage login(String uname, String pswd)
 {
 	Action.type(userName, uname);
 	Action.type(password, pswd);
-	Action.click(driver, signInBtn);
+	Action.click(driver.get(), signInBtn);
 	return new HomePage();
 }
 public AddressPage login1(String uname, String pswd)
 {
 	Action.type(userName, uname);
 	Action.type(password, pswd);
-	Action.click(driver, signInBtn);
+	Action.click(driver.get(), signInBtn);
 	return new AddressPage();
 }
 public AccountCreationPage createNewAccount(String newemail)
 {
 	Action.type(emailForNewAccount, newemail);
-	Action.click(driver, createNewAccountBtn);
+	Action.click(driver.get(), createNewAccountBtn);
 	return new AccountCreationPage();
 	
 }

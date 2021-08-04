@@ -33,7 +33,7 @@ WebElement proceedToCheckOutBtn;
 
 public AddToCartPage()
 {
-	PageFactory.initElements(driver, this);
+	PageFactory.initElements(driver.get(), this);
 }
 
 public void enterQuantity(String quantity1)
@@ -46,15 +46,18 @@ public void enterSize(String size1)
 }
 public void clickOnAddToCart()
 {
-	Action.click(driver, addToCartBtn);
+	Action.click(driver.get(), addToCartBtn);
 }
-public boolean validateAddToCart()
+public boolean validateAddToCart() throws InterruptedException
 {
-	return Action.isDisplayed(driver, addToCartMessag);
+	Action.waitforanelement(driver.get(), addToCartMessag, 10);
+	Action.findelement(driver.get(), addToCartMessag);
+	return Action.isDisplayed(driver.get(), addToCartMessag);
 }
 public OrderPage clickOnCheckOut() throws Exception
 {
-	Action.JSClick(driver, proceedToCheckOutBtn);
+	Action.fluentWait(driver.get(), proceedToCheckOutBtn, 5);
+	Action.JSClick(driver.get(), proceedToCheckOutBtn);
 	return new OrderPage();
 }
 }

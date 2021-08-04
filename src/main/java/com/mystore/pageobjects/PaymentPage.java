@@ -24,17 +24,17 @@ public class PaymentPage extends BasecClass{
 	
 	public PaymentPage()
 	{
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(driver.get(), this);
 	}
 	public OrderSummaryPage clickOnPaymentWireMethod()
 	{
-		Action.click(driver, bankWireMethod);
+		Action.click(driver.get(), bankWireMethod);
 		return new OrderSummaryPage();
 	}
 	
 	public OrderSummaryPage clickOnPaymentCheckMethod()
 	{
-		Action.click(driver, payByCheckMethod);
+		Action.click(driver.get(), payByCheckMethod);
 		return new OrderSummaryPage();
 	}
 

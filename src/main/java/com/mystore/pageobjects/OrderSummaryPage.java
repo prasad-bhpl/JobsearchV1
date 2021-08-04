@@ -22,11 +22,11 @@ public class OrderSummaryPage extends BasecClass{
 	
 	public OrderSummaryPage()
 	{
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(driver.get(), this);
 	}
 	public OrderConfirmationPage clickOnConfirmOrderBtn()
 	{
-		Action.click(driver, confirmOrderBtn);
+		Action.click(driver.get(), confirmOrderBtn);
 		return new OrderConfirmationPage();
 	}
 }

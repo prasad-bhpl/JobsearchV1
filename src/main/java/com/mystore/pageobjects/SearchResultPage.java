@@ -22,17 +22,17 @@ public class SearchResultPage extends BasecClass {
 	
 	public SearchResultPage()
 	{
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(driver.get(), this);
 	}
 	
 	public boolean isProductAvailable()
 	{
-		return Action.isDisplayed(driver, productResult);
+		return Action.isDisplayed(driver.get(), productResult);
 	}
 	
 	public AddToCartPage clickOnProduct()
 	{
-		Action.click(driver, productResult);
+		Action.click(driver.get(), productResult);
 		return new AddToCartPage();
 	}
 }

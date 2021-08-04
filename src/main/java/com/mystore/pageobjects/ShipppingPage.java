@@ -24,15 +24,15 @@ public class ShipppingPage extends BasecClass {
 	
 	public ShipppingPage()
 	{
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(driver.get(), this);
 	}
 	public void checkTheTerms()
 	{
-		Action.click(driver, terms);
+		Action.click(driver.get(), terms);
 	}
 	public PaymentPage clickOnProceedToCheckOut()
 	{
-		Action.click(driver, proceedToCheckOutBtn);
+		Action.click(driver.get(), proceedToCheckOutBtn);
 		return new PaymentPage();
 	}
 

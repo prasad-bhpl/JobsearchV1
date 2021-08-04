@@ -8,6 +8,7 @@ import org.testng.annotations.*;
 import com.mystore.Base.BasecClass;
 import com.mystore.pageobjects.IndexPage;
 
+
 /**
  * @author prasa
  *
@@ -15,15 +16,16 @@ import com.mystore.pageobjects.IndexPage;
 public class IndexPageTest extends BasecClass{
 
 IndexPage indexPage;
-@BeforeMethod
-	public void setup()
-	{
-		launchapp();
-	}
-@AfterMethod
-public void tearDown()
-{
-	driver.quit();
+
+@Parameters("browsername")
+@BeforeMethod(groups = {"Smoke","Sanity","Regression"})
+public void setup(String browsername) {
+	launchapp(browsername);
+}
+
+@AfterMethod(groups = {"Smoke","Sanity","Regression"})
+public void tearDown() {
+	getDriver().quit();
 }
 
 @Test

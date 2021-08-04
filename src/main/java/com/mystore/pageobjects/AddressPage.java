@@ -20,11 +20,11 @@ public class AddressPage extends BasecClass{
 	
 	public AddressPage()
 	{
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(driver.get(), this);
 	}
 	public ShipppingPage clickOnCheckOut()
 	{
-		Action.click(driver, proceedToCheckOut);
+		Action.click(driver.get(), proceedToCheckOut);
 		return new ShipppingPage();
 	}
 
